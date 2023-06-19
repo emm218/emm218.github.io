@@ -16,5 +16,15 @@
       <description>Eos is my third attempt at building my own operating system kernel to run on actual hardware. Previously for my operating systems course at university I had worked with a simplified architecture that only supported single level paging and was free of the backwards compatibility cruft inherent to x86_64. This page aims to describe the state of the actual work and my design plans for the future, and will be updated as I continue to work on the project.</description>
     </item>
     
+    <item>
+      <title>Unlucky</title>
+      <link>https://emm218.github.io/unlucky.html</link>
+      <pubDate>Sat, 06 May 2023 18:16:46 -0400</pubDate>
+      
+      <guid>https://emm218.github.io/unlucky.html</guid>
+      <description>The NES was an interesting target for my first project emulating a system since while the 6502 and its variants are very simple chips, the NES is made more complicated than another 6502 based system like the Atari 2600 by the fact that it contains 2 processors that both need to be simulated and which interact through both memory mapped I/O and DMA.
+And just because I&amp;rsquo;ve gotten the question several times when I&amp;rsquo;ve told friends about the project I want to clarify that despite Nintendo wishing otherwise, emulators are not illegal, only distributing copyrighted ROM dumps is.</description>
+    </item>
+    
   </channel>
 </rss>
