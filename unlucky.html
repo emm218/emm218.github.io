@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta name="description" content="an NES emulator" />
+		<link rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">
+		<link rel="canonical" href="https://emm218.github.io/unlucky.html">
+		<link rel="stylesheet" href="/style.css" type="text/css" charset="utf-8" />
+		<link rel="stylesheet" href="/syntax.css" type="text/css" charset="utf-8" />
+		<title>Unlucky</title>
+	</head>
+	<body>
+		<a href="#main" class="skip">Skip to content</a>
+		
+		<h1 id="site-title">Unlucky <span class="sub-title">an NES emulator</span></h1>
+		
+		<nav id="main-nav">
+			<menu><li><a href = "/" >home</a></li><li><a href = "https://github.com/emm218"  rel="me" >github</a></li></menu>
+		</nav>
+		<main id="main">
+		
+<article >
+	<p>The NES was an interesting target for my first project emulating a system since
+while the 6502 and its variants are very simple chips, the NES is made more
+complicated than another 6502 based system like the Atari 2600 by the fact that
+it contains 2 processors that both need to be simulated and which interact
+through both memory mapped I/O and DMA.</p>
+<p>And just because I&rsquo;ve gotten the question several times when I&rsquo;ve told friends
+about the project I want to clarify that despite Nintendo wishing otherwise,
+<a href="https://casetext.com/case/sony-computer-entertainment-v-connectix-corp-2">emulators are not
+illegal</a>,
+only distributing copyrighted ROM dumps is. There is plenty of software written
+for the NES by hobbyists that is available to me freely and which I have been
+able to use to test my emulator without engaging in copyright infringement.</p>
+<p>Huge thanks to all the contributors at the
+<a href="https://wiki.nesdev.org">Nesdev Wiki</a> for everything they&rsquo;ve done to assemble
+great documentation of all of the NES&rsquo;s internals in one place.</p>
+<h2 id="timing">Timing</h2>
+<p>Keeping timings between the CPU and PPU in sync and managing details of timing
+for things like interrupts is one of the first hard problems that an emulator
+has to tackle. Currently I&rsquo;ve only worked on the first part and come up with the
+following solution that I&rsquo;m happy with</p>
+<ol>
+<li>
+<p>We maintain two variables <code>cpu_time</code> and <code>ppu_time</code> which are both counted in
+PPU clock cycles (since the PPU clock runs 3x faster than the CPU one on NTSC
+machines)</p>
+</li>
+<li>
+<p>We have functions <code>run_cpu</code> and <code>run_ppu</code> that take a time as an argument and
+will simulate the corresponding processor until their local time reaches the
+argument given</p>
+</li>
+<li>
+<p>When we want to run a frame we calculate the PPU time that the frame will end
+on and call <code>run_cpu(end_time)</code></p>
+</li>
+<li>
+<p>The <code>run_cpu</code> code calls <code>run_ppu</code> to make the PPU catch up with the CPU
+whenever the CPU interacts with the PPU through memory mapped I/O</p>
+</li>
+<li>
+<p>After <code>run_cpu</code> finishes, <code>run_ppu(end_time)</code> is also called to make sure the
+frame finishes drawing and they start the next frame in sync</p>
+</li>
+</ol>
+<h2 id="bus-accuracy">Bus Accuracy</h2>
+<p>At first my emulator made the assumption that execution would only ever happen
+from ROM and incidentally supported executing from RAM as well, but would have
+crashed had execution transferred to memory mapped I/O or to unmapped addresses
+on the bus. This should never occur in normal operation, and I am not aware of
+any well known examples of it happening on the NES (see
+<a href="https://www.youtube.com/watch?v=cPdlFUfENok">here</a> for an explanation of an
+example on the SNES where exeuction jumps to open bus though), but since it is
+possible I wanted to allow it.</p>
+<h2 id="optimization-ideas">Optimization Ideas</h2>
+<p>Before moving to try and optimize things I want to ensure that all functionality
+required for most software is working, but until then I&rsquo;ve been working on some
+ideas for optimization:</p>
+<ol>
+<li>
+<p>JIT compilation of 6502 machine code to x86(_64). Interest in this technique
+was actually part of the reason I started this project, and I&rsquo;d work through
+this one even if profiling its performance afterward showed that it was less
+efficient than the basic interpretation method since I want to understand how
+JIT works in general.</p>
+</li>
+<li>
+<p>Optimizing rendering with graphics APIs (OpenGL/Vulkan). At first I plan to
+just implement a software renderer and with a graphics system as simple as
+the NES&rsquo;s PPU I should have no trouble emulating it in software at full speed
+but it would be interesting to see how many frames I can possibly render per
+second wtih no cap imposed.</p>
+</li>
+</ol>
+
+</article>
+
+		</main>
+		<footer>
+			Last modified <time datetime="2023-06-19">June 19 2023</time>
+			<br>
+			Made with <a href="https://gohugo.io">hugo</a>
+		</footer>
+	</body>
+</html>
