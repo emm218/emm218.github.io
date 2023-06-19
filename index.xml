@@ -5,6 +5,16 @@
     <link>https://emm218.github.io/</link>
     <description>Recent content on Emmycelium</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="https://emm218.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Sat, 06 May 2023 15:55:00 -0400</lastBuildDate><atom:link href="https://emm218.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Eos</title>
+      <link>https://emm218.github.io/eos.html</link>
+      <pubDate>Fri, 16 Jun 2023 09:42:43 -0400</pubDate>
+      
+      <guid>https://emm218.github.io/eos.html</guid>
+      <description>Eos is my third attempt at building my own operating system kernel to run on actual hardware. Previously for my operating systems course at university I had worked with a simplified architecture that only supported single level paging and was free of the backwards compatibility cruft inherent to x86_64. This page aims to describe the state of the actual work and my design plans for the future, and will be updated as I continue to work on the project.</description>
+    </item>
+    
   </channel>
 </rss>
