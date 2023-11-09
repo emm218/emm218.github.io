@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Emmycelium</title>
-    <link>https://emm218.github.io/</link>
-    <description>Recent content on Emmycelium</description>
+    <title>Projects on Emmycelium</title>
+    <link>https://emm218.github.io/projects.html</link>
+    <description>Recent content in Projects on Emmycelium</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 06 May 2023 15:55:00 -0400</lastBuildDate><atom:link href="https://emm218.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 16 Jun 2023 09:42:43 -0400</lastBuildDate><atom:link href="https://emm218.github.io/projects/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Eos</title>
       <link>https://emm218.github.io/projects/eos.html</link>

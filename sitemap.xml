@@ -2,11 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://emm218.github.io/eos.html</loc>
-    <lastmod>2023-06-18T20:15:13-04:00</lastmod>
+    <loc>https://emm218.github.io/projects/eos.html</loc>
+    <lastmod>2023-06-16T09:42:43-04:00</lastmod>
   </url><url>
-    <loc>https://emm218.github.io/unlucky.html</loc>
-    <lastmod>2023-06-19T09:31:10-04:00</lastmod>
+    <loc>https://emm218.github.io/projects.html</loc>
+    <lastmod>2023-06-16T09:42:43-04:00</lastmod>
+  </url><url>
+    <loc>https://emm218.github.io/projects/unlucky.html</loc>
+    <lastmod>2023-05-06T18:16:46-04:00</lastmod>
   </url><url>
     <loc>https://emm218.github.io/</loc>
     <lastmod>2023-06-19T09:33:00-04:00</lastmod>
