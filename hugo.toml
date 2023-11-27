@@ -1,0 +1,9 @@
+baseURL = 'https://emmy218.codeberg.page/'
+languageCode = 'en-us'
+title = 'Emmaline Alme'
+uglyurls=true
+enableGitInfo=true
+disableKinds = ['taxonomy', 'term']
+
+[markup.goldmark.renderer]
+    unsafe = true
