@@ -1,0 +1,25 @@
+{{ define "main" }}
+<main id="main">
+{{ .Content }}
+{{ with (where .Site.RegularPages "Section" "projects") }}
+<h2>Projects</h2>
+<ul class="post-list">
+{{ range . }}
+<li>
+<a href="{{ .Permalink }}">{{ .Title }}{{ with .Description }}, {{ . }}{{ end }}</a>
+</li>
+{{ end }}
+</ul>
+{{ end }}
+{{ with (where .Site.RegularPages "Section" "posts") }}
+<h2>Posts</h2>
+<ul class="post-list">
+{{ range . }}
+<li>
+<a href="{{ .Permalink }}">{{ .Title }}{{ with .Description }}, {{ . }}{{ end }}</a>
+</li>
+{{ end }}
+</ul>
+{{ end }}
+</main>
+{{ end }}

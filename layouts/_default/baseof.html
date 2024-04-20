@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8"/>
+        <meta name="description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Description }}{{ end }}"/>
+        {{ with .Keywords }}<meta name="keywords" content="{{ delimit . ", " }}"/>{{ end }}
+        <link rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"/>
+        <link rel="canonical" href="{{ .Permalink }}"/>
+        <link rel="stylesheet" href="{{ "style.css" | relURL }}" type="text/css" charset="utf-8"/>
+        <link rel="stylesheet" media="(prefers-color-scheme: dark)" href="{{ "syntax-dark.css" | relURL }}" type="text/css" charset="utf-8"/>
+        <link rel="stylesheet" media="(prefers-color-scheme: light)" href="{{ "syntax-light.css" | relURL }}" type="text/css" charset="utf-8"/>
+        <title>{{ with .Title }}{{ . }}{{ else }}{{ .Site.Title }}{{ end }}</title>
+    </head>
+    <body>
+        <a href="#main" id="skip">Skip to content</a>
+        <header>
+        {{ if .Title }}
+        <h1 id="title">{{ .Title }}</h1>
+        {{ with .Description }}<span class="sub-title">{{ . }}</span>{{ end }}
+        {{ else }}
+        <h1 id="title">{{ .Site.Title }}</h1>
+        {{ with .Site.Params.description }}<span class="sub-title">{{ . }}</span>{{ end }}
+        {{ end }}
+            </header>
+        <nav id="main-nav">
+            <menu>{{ range .Site.Menus.main }}<li><a href="{{ .URL }}" {{ with .Params.rel }} rel="{{ . }}" {{ end }}>{{ lower .Name }}</a></li>{{ end }}</menu>
+        </nav>
+        {{ block "main" . }}{{ end }}
+        <footer>
+            © 2023-2024 Emmaline Alme ·
+            Made with <a href="https://gohugo.io">hugo</a> ·
+            <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="license noopener noreferrer">CC BY-SA 4.0<img class="cc-icon" alt="" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg"><img class="cc-icon" alt="" src="https://mirrors.creativecommons.org/presskit/icons/by.svg"><img class="cc-icon" alt="" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg"></a> 
+        </footer>
+    </body>
+</html>

@@ -1,0 +1,5 @@
+{{ define "main" }}
+<article {{ with .Params.language }}lang="{{ . }}"{{ end }} id="main">
+    {{ .Content }}
+</article>
+{{ end }}
