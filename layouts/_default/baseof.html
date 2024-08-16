@@ -1,7 +1,8 @@
 <!DOCTYPE html>
-<html>
+<html lang="{{ .Site.Language.LanguageCode }}">
     <head>
         <meta charset="utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="{{ if .IsHome }}{{ .Site.Params.description }}{{ else }}{{ .Description }}{{ end }}"/>
         {{ with .Keywords }}<meta name="keywords" content="{{ delimit . ", " }}"/>{{ end }}
         <link rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/"/>
@@ -33,9 +34,9 @@
                 <li>
                     <a href="{{ .Permalink }}">
                         <svg viewBox="0 0 25 25" aria-label="RSS feed" style="width: 1rem; aspect-ratio: 1/1;">
-                        <path fill="currentColor" d="M3.7 17.5a3.7 3.7 0 1 0 0 7.4 3.7 3.7 0 0 0 0-7.4z"></path>
-                        <path fill="currentColor" d="M.4 8.1c-.2 0-.4.2-.4.4v4.7c0 .2.2.4.4.4 6 0 10.9 4.9 10.9 11 0 .1.2.3.4.3h4.7c.2 0 .4-.2.4-.4v-.1C16.7 15.4 9.4 8.1.4 8.1z"></path>
-                        <path fill="currentColor" d="M24.9 24.4C24.9 10.9 13.9 0 .4 0 .2 0 0 .2 0 .4v4.8c0 .2.2.4.4.4a19 19 0 0 1 18.9 19c0 .1.2.3.4.3h4.8c.2 0 .4-.2.4-.4v-.1z"></path>
+                            <path fill="currentColor" d="M3.7 17.5a3.7 3.7 0 1 0 0 7.4 3.7 3.7 0 0 0 0-7.4z"></path>
+                            <path fill="currentColor" d="M.4 8.1c-.2 0-.4.2-.4.4v4.7c0 .2.2.4.4.4 6 0 10.9 4.9 10.9 11 0 .1.2.3.4.3h4.7c.2 0 .4-.2.4-.4v-.1C16.7 15.4 9.4 8.1.4 8.1z"></path>
+                            <path fill="currentColor" d="M24.9 24.4C24.9 10.9 13.9 0 .4 0 .2 0 0 .2 0 .4v4.8c0 .2.2.4.4.4a19 19 0 0 1 18.9 19c0 .1.2.3.4.3h4.8c.2 0 .4-.2.4-.4v-.1z"></path>
                         </svg>
                     </a>
                 </li>
