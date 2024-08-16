@@ -67,24 +67,6 @@ footer {
     grid-area: footer;
 }
 
-@media screen and (max-width: 700px) {
-    body {
-        display:flex;
-        flex-direction:column;
-    }
-
-    #sidebar {
-        position: static;
-        margin: 0 0 0.25rem;
-        width: 100%;
-    }
-
-    #sidebar li {
-        display: inline-block;
-        margin-right: 0.5rem;
-    }
-}
-
 ul {
     margin: 0;
 }
@@ -92,6 +74,7 @@ ul {
 #title {
     display: inline;
     margin-right: 0.25em;
+    margin-top: 0;
 }
 
 .sub-title {
@@ -151,3 +134,27 @@ hr {
 .footnotes ol p {
     margin: 0
 }
+
+@media screen and (max-width: 54rem) {
+    body {
+        display:flex;
+        flex-direction:column;
+    }
+
+    #sidebar {
+        position: static;
+        margin: 0 0 0.25rem;
+        width: 100%;
+    }
+
+    #sidebar li {
+        display: inline-block;
+        margin-right: 0.5rem;
+    }
+
+    #title {
+        display: block;
+        margin-bottom: 0;
+    }
+}
+
