@@ -5,23 +5,27 @@ uglyurls = true
 enableGitInfo = true
 disableKinds = ['taxonomy', 'term', 'section']
 
-markup.highlight.noClasses=false
+markup.highlight.noClasses = false
+markup.goldmark.renderer.unsafe = true
+
+[outputFormats.rss]
+    baseName = 'feed'
 
 [params]
     description = "A home for my projects"
 
 [[menu.main]]
-    name = "github"
+    name = "Github"
     url = "https://github.com/emm218"
     [menu.main.params]
         rel = "me"
 
 [[menu.main]]
-    name = "linkedin"
+    name = "LinkedIn"
     url = "https://www.linkedin.com/in/emmaline-alme/"
     [menu.main.params]
         rel = "me"
 
 [[menu.main]]
-    name = "pgp key"
+    name = "Pgp key"
     url = "pgp.txt"

@@ -14,37 +14,65 @@
 }
 
 :root {
-    --bg: #11111b;
+    --bg: black;
     --fg: white;
     --link: #09f;
-}
-
-@media (prefers-color-scheme: light) {
-    :root {
-        --bg: white;
-        --fg: black;
-        --link: #51f;
-    }
 }
 
 body {
     background: var(--bg);
     color: var(--fg);
     font-family: sans-serif;
-    max-width: 45em;
+    max-width: 50rem;
     padding: 0 2em;
     margin: 1em auto;
-    font-size: 12pt;
     line-height: 1.6;
+    display: grid;
+    grid-template-columns: auto 10rem;
+    grid-template-rows: min-content 1fr min-content;
+    grid-template-areas:
+        "header  header " 
+        "content sidebar" 
+        "footer  footer ";
+}
+
+header {
+    border-bottom: 1px solid;
+    grid-area: header;
+    padding-bottom: 0.25em;
+    margin-bottom: 0.5rem;
+}
+
+#sidebar {
+    grid-area: sidebar;
+    position: sticky;
+    top: 0.5rem;
+    align-self:start;
+    margin-left: 0.5rem;
+    font-size:115%;
+}
+
+#sidebar ul {
+    padding: 0;
+    list-style: none;
+}
+
+#main {
+    grid-area: content;
+}
+
+footer {
+    margin-top: 2em;
+    grid-area: footer;
+}
+
+ul {
+    margin: 0;
 }
 
 #title {
     display: inline;
     margin-right: 0.25em;
-}
-
-header {
-    border-bottom: 2px solid;
 }
 
 .sub-title {
@@ -62,52 +90,24 @@ p {
     margin-top: 0;
 }
 
-a, nav a:visited {
+a {
     color: var(--link);
 }
 
-#main-nav menu {
-    padding: 0;
-    margin: 0.25em 0;
-}
-
-#main-nav menu::before {
-    content: "[ ";
-}
-
-#main-nav menu::after {
-    content: " ]";
-}
-
-#main-nav li {
-    display: inline;
-}
-
-#main-nav li:first-child::before {
-    content: "";
-}
-
-#main-nav li::before {
-    content: " | ";
-}
-
-.post-list {
-    margin: 0;
-}
-
-footer {
-    margin-top: 2em;
-    text-align: center;
+nav a, #main-nav a:visited {
+    color: inherit;
 }
 
 footer a {
-    color: var(--fg);
+    color: inherit; 
 }
 
-.cc-icon {
-    width: 20px!important;
+.cc-icon svg {
+    width: 1.25em;
+    height: 1.25em;
+    display: inline;
+    vertical-align: middle;
     margin-left: 3px;
-    vertical-align: text-bottom;
 }
 
 .chroma {
