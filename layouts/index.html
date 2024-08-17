@@ -2,16 +2,17 @@
 <header id="title">
     {{ if .Title }}
     <h1>{{ .Title }}</h1>
-    {{ with .Description }}<span class="sub-title">{{ . }}</span>{{ end }}
+    {{ with .Description }}<p>{{ . }}</p>{{ end }}
     {{ else }}
     <h1>{{ .Site.Title }}</h1>
-    {{ with .Site.Params.description }}<span class="sub-title">{{ . }}</span>{{ end }}
+    {{ with .Site.Params.description }}<p>{{ . }}</p>{{ end }}
     {{ end }}
 </header>
 {{ .Content }}
-{{ with (where .Site.RegularPages "Section" "projects") }}
-<h2>Projects</h2>
-<ul>
+{{ range $section := .Site.MainSections }}
+{{ with (where $.Site.RegularPages "Section" .) }}
+<h2>{{ title $section }}</h2>
+<ul class="post-list">
     {{ range . }}
     <li>
         <a href="{{ .Permalink }}">{{ .Title }}{{ with .Description }}, {{ . }}{{ end }}</a>
@@ -19,14 +20,6 @@
     {{ end }}
 </ul>
 {{ end }}
-{{ with (where .Site.RegularPages "Section" "posts") }}
-<h2>Posts</h2>
-<ul>
-    {{ range . }}
-    <li>
-        <a href="{{ .Permalink }}">{{ .Title }}</a>
-    </li>
-    {{ end }}
-</ul>
 {{ end }}
+{{ partial "footer.html" }}
 {{ end }}

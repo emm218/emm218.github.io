@@ -9,6 +9,8 @@
         <link rel="canonical" href="{{ .Permalink }}"/>
         <link rel="stylesheet" href="{{ "style.css" | relURL }}" type="text/css" charset="utf-8"/>
         <link rel="stylesheet" href="{{ "syntax.css" | relURL }}" type="text/css" charset="utf-8"/>
+        <!-- this is here to make sure that if we can't load CSS the icons don't totally fuck up layout -->
+        <style>.icon svg { width: 1.25em; height: 1.25em; }</style>
         {{ range .AlternativeOutputFormats -}}
         {{ printf `<link rel="%s" type="%s" href="%s" title="%s" />` .Rel .MediaType.Type .Permalink $.Site.Title | safeHTML }}
         {{ end -}}
@@ -16,18 +18,17 @@
     </head>
     <body>
         <nav id="sidebar">
-        <a href="#main" id="skip">Skip to content</a>
+            <a href="#main" class="skip">Skip to content</a>
             <ul>
                 {{ range .Site.Menus.main }}
                 <li><a href="{{ .URL }}" {{ with .Params.rel }} rel="{{ . }}" {{ end }}>{{ .Name }}</a></li>
                 {{ end }}
                 {{ with .Site.Home.OutputFormats.Get "rss" -}}
                 <li>
-                    <a href="{{ .Permalink }}">
-                        <svg viewBox="0 0 25 25" aria-label="RSS feed" style="width: 1rem; aspect-ratio: 1/1;">
-                            <path fill="currentColor" d="M3.7 17.5a3.7 3.7 0 1 0 0 7.4 3.7 3.7 0 0 0 0-7.4z"></path>
-                            <path fill="currentColor" d="M.4 8.1c-.2 0-.4.2-.4.4v4.7c0 .2.2.4.4.4 6 0 10.9 4.9 10.9 11 0 .1.2.3.4.3h4.7c.2 0 .4-.2.4-.4v-.1C16.7 15.4 9.4 8.1.4 8.1z"></path>
-                            <path fill="currentColor" d="M24.9 24.4C24.9 10.9 13.9 0 .4 0 .2 0 0 .2 0 .4v4.8c0 .2.2.4.4.4a19 19 0 0 1 18.9 19c0 .1.2.3.4.3h4.8c.2 0 .4-.2.4-.4v-.1z"></path>
+                    <a class="icon" href="{{ .Permalink }}">
+                        <svg viewBox="0 0 448 512" aria-label="RSS feed">
+                            <!-- Font Awesome Free 5.15.4 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) -->
+                            <path fill="currentColor" d="M128.081 415.959c0 35.369-28.672 64.041-64.041 64.041S0 451.328 0 415.959s28.672-64.041 64.041-64.041 64.04 28.673 64.04 64.041zm175.66 47.25c-8.354-154.6-132.185-278.587-286.95-286.95C7.656 175.765 0 183.105 0 192.253v48.069c0 8.415 6.49 15.472 14.887 16.018 111.832 7.284 201.473 96.702 208.772 208.772.547 8.397 7.604 14.887 16.018 14.887h48.069c9.149.001 16.489-7.655 15.995-16.79zm144.249.288C439.596 229.677 251.465 40.445 16.503 32.01 7.473 31.686 0 38.981 0 48.016v48.068c0 8.625 6.835 15.645 15.453 15.999 191.179 7.839 344.627 161.316 352.465 352.465.353 8.618 7.373 15.453 15.999 15.453h48.068c9.034-.001 16.329-7.474 16.005-16.504z"/>
                         </svg>
                     </a>
                 </li>
@@ -36,10 +37,6 @@
         </nav>
         <main id="main">
             {{ block "main" . }}{{ end }}
-            <footer>
-                © 2023-2024 Emmaline Alme. This work is openly licensed via <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="license noopener noreferrer">CC BY-SA 4.0<span class="cc-icon"><svg viewBox="0 0 30 30" aria-hidden="true"><use href="/cc-icons.svg#cc-logo"></use></svg></span><span class="cc-icon"><svg viewBox="0 0 30 30" aria-hidden="true"><use href="/cc-icons.svg#cc-by"></use></svg></span><span class="cc-icon"><svg viewBox="0 0 30 30" aria-hidden="true"><use href="/cc-icons.svg#cc-sa"></use></svg></span>
-                </a> 
-            </footer>
         </main>
     </body>
 </html>

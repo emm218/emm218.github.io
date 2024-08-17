@@ -7,12 +7,14 @@ disableKinds = ['taxonomy', 'term', 'section']
 
 markup.highlight.noClasses = false
 markup.goldmark.renderer.unsafe = true
+markup.tableOfContents.ordered = true
 
 [outputFormats.rss]
     baseName = 'feed'
 
 [params]
     description = "A home for my projects"
+    mainsections = ["projects", "posts"]
 
 [[menu.main]]
     name = "Github"
@@ -27,5 +29,5 @@ markup.goldmark.renderer.unsafe = true
         rel = "me"
 
 [[menu.main]]
-    name = "Pgp key"
+    name = "PGP key"
     url = "pgp.txt"

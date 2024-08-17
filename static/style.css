@@ -1,24 +1,6 @@
-#skip {
-    position: absolute;
-    left: -10000px;
-    top: auto;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-}
-
-#skip:focus {
-    grid-area: skip;
-    position: static;
-    width: auto;
-    height: auto;
-    display: block;
-    color: var(--link);
-}
-
 :root {
-    --bg: black;
-    --fg: white;
+    --bg: #000;
+    --fg: #fff;
     --link: #09f;
 }
 
@@ -59,8 +41,8 @@ body {
     margin-bottom: 0.5rem;
 }
 
-footer {
-    margin-top: 2em;
+footer p {
+    margin: 2em 0 0;
 }
 
 #title h1 {
@@ -68,17 +50,25 @@ footer {
     margin-right: 0.25em;
     margin-top: 0;
     font-size: 2em;
+    font-style: normal;
 }
 
-.sub-title {
+#title p {
+    display: inline;
+}
+
+header p {
     font-style: italic;
     font-weight: normal;
-    font-size: 12pt;
 }
-
 
 ul {
     margin: 0;
+}
+
+.post-list {
+    list-style: "> " inside;
+    padding-left: 1rem;
 }
 
 h1, h2, h3 {
@@ -94,7 +84,7 @@ a {
     color: var(--link);
 }
 
-nav a, #main-nav a:visited {
+#sidebar a, #main-nav a:visited {
     color: inherit;
 }
 
@@ -102,18 +92,18 @@ footer a {
     color: inherit; 
 }
 
-.cc-icon svg {
-    width: 1.25em;
-    height: 1.25em;
-    display: inline;
-    vertical-align: middle;
+.icon svg {
+    vertical-align: text-bottom;
+}
+
+.cc svg {
     margin-left: 3px;
 }
 
 .chroma {
     padding: 1rem;
     border-radius: 1rem;
-    font-size: 11pt;
+    font-size: 0.9rem;
 }
 
 article img {
@@ -131,6 +121,44 @@ hr {
 
 .footnotes ol p {
     margin: 0
+}
+
+#toc-title {
+    margin-top: 0;
+}
+
+#toc ol {
+    list-style: inside;
+    margin: 0;
+}
+
+#toc ol {
+    padding-left:0;
+}
+
+#toc ol ol {
+    padding-left:1em;
+}
+
+#toc ol > li::marker { 
+    content: counters(list-item, '.') ' ';
+}
+
+.skip {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.skip:focus {
+    position: static;
+    width: auto;
+    height: auto;
+    display: block;
+    color: var(--link);
 }
 
 @media screen and (max-width: 54rem) {

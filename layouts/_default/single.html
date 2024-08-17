@@ -4,14 +4,23 @@
         <div id="title">
             {{ if .Title }}
             <h1>{{ .Title }}</h1>
-            {{ with .Description }}<span class="sub-title">{{ . }}</span>{{ end }}
+            {{ with .Description }}<p>{{ . }}</p>{{ end }}
             {{ else }}
             <h1>{{ .Site.Title }}</h1>
-            {{ with .Site.Params.description }}<span class="sub-title">{{ . }}</span>{{ end }}
+            {{ with .Site.Params.description }}<p>{{ . }}</p>{{ end }}
             {{ end }}
         </div>
-        <p>last updated <time datetime="{{ .Date }}">{{ .Date.Format "2 Jan 2006" }}</time></p>
+        <p>last updated <time datetime="{{ .Lastmod }}">{{ .Lastmod.Format "January 2, 2006" }}</time></p>
     </header>
+    {{ if .Params.toc }}
+    <aside id="toc">
+        <a class="skip" href="#post">Skip table of contents</a>
+        <h2 id="toc-title">Contents</h2>
+        {{.TableOfContents}}
+    </aside>
+    <a id="post"></a>
+    {{ end }}
     {{ .Content }}
+    {{ partial "footer.html" }}
 </article>
 {{ end }}

@@ -1,5 +1,4 @@
 ---
-date: 2023-11-27T13:29:30-05:00
 menu:
     main:
         name: "Home"
