@@ -1,23 +1,32 @@
 {{ define "main" }}
+<header id="title">
+    {{ if .Title }}
+    <h1>{{ .Title }}</h1>
+    {{ with .Description }}<span class="sub-title">{{ . }}</span>{{ end }}
+    {{ else }}
+    <h1>{{ .Site.Title }}</h1>
+    {{ with .Site.Params.description }}<span class="sub-title">{{ . }}</span>{{ end }}
+    {{ end }}
+</header>
 {{ .Content }}
 {{ with (where .Site.RegularPages "Section" "projects") }}
 <h2>Projects</h2>
 <ul>
-{{ range . }}
-<li>
-<a href="{{ .Permalink }}">{{ .Title }}{{ with .Description }}, {{ . }}{{ end }}</a>
-</li>
-{{ end }}
+    {{ range . }}
+    <li>
+        <a href="{{ .Permalink }}">{{ .Title }}{{ with .Description }}, {{ . }}{{ end }}</a>
+    </li>
+    {{ end }}
 </ul>
 {{ end }}
 {{ with (where .Site.RegularPages "Section" "posts") }}
 <h2>Posts</h2>
 <ul>
-{{ range . }}
-<li>
-<a href="{{ .Permalink }}">{{ .Title }}</a>
-</li>
-{{ end }}
+    {{ range . }}
+    <li>
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </li>
+    {{ end }}
 </ul>
 {{ end }}
 {{ end }}

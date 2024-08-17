@@ -1,5 +1,17 @@
 {{ define "main" }}
-<article {{ with .Params.language }}lang="{{ . }}"{{ end }}>
+<article>
+    <header>
+        <div id="title">
+            {{ if .Title }}
+            <h1>{{ .Title }}</h1>
+            {{ with .Description }}<span class="sub-title">{{ . }}</span>{{ end }}
+            {{ else }}
+            <h1>{{ .Site.Title }}</h1>
+            {{ with .Site.Params.description }}<span class="sub-title">{{ . }}</span>{{ end }}
+            {{ end }}
+        </div>
+        <p>last updated <time datetime="{{ .Date }}">{{ .Date.Format "2 Jan 2006" }}</time></p>
+    </header>
     {{ .Content }}
 </article>
 {{ end }}

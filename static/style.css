@@ -8,9 +8,12 @@
 }
 
 #skip:focus {
+    grid-area: skip;
     position: static;
     width: auto;
     height: auto;
+    display: block;
+    color: var(--link);
 }
 
 :root {
@@ -24,33 +27,21 @@ body {
     color: var(--fg);
     font-family: sans-serif;
     max-width: 50rem;
-    padding: 0 2em;
-    margin: 1em auto;
+    padding: 0 2rem;
+    margin: 1rem auto;
     line-height: 1.6;
-    display: grid;
-    grid-template-columns: auto 10rem;
-    grid-template-rows: min-content 1fr min-content;
-    grid-template-areas:
-        "header  header " 
-        "content sidebar" 
-        "footer  footer ";
-}
-
-header {
-    border-bottom: 1px solid;
-    grid-area: header;
-    padding-bottom: 0.25em;
-    margin-bottom: 0.5rem;
+    display: flex;
+    flex-direction: row-reverse;
 }
 
 #sidebar {
-    grid-area: sidebar;
     position: sticky;
     top: 0.5rem;
     align-self:start;
-    margin-left: 0.5rem;
-    font-size:115%;
+    margin-left: 1.5rem;
     background: inherit;
+    flex-shrink: 0;
+    width: 8rem;
 }
 
 #sidebar ul {
@@ -59,28 +50,35 @@ header {
 }
 
 #main {
-    grid-area: content;
+    flex-grow: 999;
+}
+
+#title {
+    border-bottom: 1px solid;
+    padding-bottom: 0.25em;
+    margin-bottom: 0.5rem;
 }
 
 footer {
     margin-top: 2em;
-    grid-area: footer;
 }
 
-ul {
-    margin: 0;
-}
-
-#title {
+#title h1 {
     display: inline;
     margin-right: 0.25em;
     margin-top: 0;
+    font-size: 2em;
 }
 
 .sub-title {
     font-style: italic;
     font-weight: normal;
     font-size: 12pt;
+}
+
+
+ul {
+    margin: 0;
 }
 
 h1, h2, h3 {
@@ -137,7 +135,6 @@ hr {
 
 @media screen and (max-width: 54rem) {
     body {
-        display:flex;
         flex-direction:column;
     }
 
@@ -152,7 +149,7 @@ hr {
         margin-right: 0.5rem;
     }
 
-    #title {
+    #title h1 {
         display: block;
         margin-bottom: 0;
     }

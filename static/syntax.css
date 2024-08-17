@@ -1,5 +1,5 @@
-/* Background */ .bg { color: #f8f8f2; background-color: #282a36; }
-/* PreWrapper */ .chroma { color: #f8f8f2; background-color: #282a36; }
+/* Background */ .bg { color: #f8f8f2; background-color: #11111b; }
+/* PreWrapper */ .chroma { color: #f8f8f2; background-color: #11111b; }
 /* Other */ .chroma .x {  }
 /* Error */ .chroma .err {  }
 /* CodeLine */ .chroma .cl {  }
@@ -64,11 +64,11 @@
 /* Operator */ .chroma .o { color: #ff79c6 }
 /* OperatorWord */ .chroma .ow { color: #ff79c6 }
 /* Punctuation */ .chroma .p {  }
-/* Comment */ .chroma .c { color: #6272a4 }
-/* CommentHashbang */ .chroma .ch { color: #6272a4 }
-/* CommentMultiline */ .chroma .cm { color: #6272a4 }
-/* CommentSingle */ .chroma .c1 { color: #6272a4 }
-/* CommentSpecial */ .chroma .cs { color: #6272a4 }
+/* Comment */ .chroma .c { color: #9DA3BD }
+/* CommentHashbang */ .chroma .ch { color: #9DA3BD }
+/* CommentMultiline */ .chroma .cm { color: #9DA3BD }
+/* CommentSingle */ .chroma .c1 { color: #9DA3BD }
+/* CommentSpecial */ .chroma .cs { color: #9DA3BD }
 /* CommentPreproc */ .chroma .cp { color: #ff79c6 }
 /* CommentPreprocFile */ .chroma .cpf { color: #ff79c6 }
 /* Generic */ .chroma .g {  }

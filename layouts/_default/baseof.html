@@ -15,17 +15,8 @@
         <title>{{ with .Title }}{{ . }}{{ else }}{{ .Site.Title }}{{ end }}</title>
     </head>
     <body>
-        <a href="#main" id="skip">Skip to content</a>
-        <header>
-            {{ if .Title }}
-            <h1 id="title">{{ .Title }}</h1>
-            {{ with .Description }}<span class="sub-title">{{ . }}</span>{{ end }}
-            {{ else }}
-            <h1 id="title">{{ .Site.Title }}</h1>
-            {{ with .Site.Params.description }}<span class="sub-title">{{ . }}</span>{{ end }}
-            {{ end }}
-        </header>
         <nav id="sidebar">
+        <a href="#main" id="skip">Skip to content</a>
             <ul>
                 {{ range .Site.Menus.main }}
                 <li><a href="{{ .URL }}" {{ with .Params.rel }} rel="{{ . }}" {{ end }}>{{ .Name }}</a></li>
@@ -45,10 +36,10 @@
         </nav>
         <main id="main">
             {{ block "main" . }}{{ end }}
+            <footer>
+                © 2023-2024 Emmaline Alme. This work is openly licensed via <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="license noopener noreferrer">CC BY-SA 4.0<span class="cc-icon"><svg viewBox="0 0 30 30" aria-hidden="true"><use href="/cc-icons.svg#cc-logo"></use></svg></span><span class="cc-icon"><svg viewBox="0 0 30 30" aria-hidden="true"><use href="/cc-icons.svg#cc-by"></use></svg></span><span class="cc-icon"><svg viewBox="0 0 30 30" aria-hidden="true"><use href="/cc-icons.svg#cc-sa"></use></svg></span>
+                </a> 
+            </footer>
         </main>
-        <footer>
-            © 2023-2024 Emmaline Alme. This work is openly licensed via <a href="http://creativecommons.org/licenses/by-sa/4.0/" target="_blank" rel="license noopener noreferrer">CC BY-SA 4.0<span class="cc-icon"><svg viewBox="0 0 30 30"><use href="/cc-icons.svg#cc-logo"></use></svg></span><span class="cc-icon"><svg viewBox="0 0 30 30"><use href="/cc-icons.svg#cc-by"></use></svg></span><span class="cc-icon"><svg viewBox="0 0 30 30"><use href="/cc-icons.svg#cc-sa"></use></svg></span>
-            </a> 
-        </footer>
     </body>
 </html>
